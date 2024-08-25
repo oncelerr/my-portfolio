@@ -11,6 +11,7 @@ export default function Home() {
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
+  const bgImage = useRef(null); // Reference to the background image
   let xPercent = 0;
   let direction = -1;
   const directionRef = useRef(null);
@@ -18,6 +19,7 @@ export default function Home() {
   useLayoutEffect(() => {
     directionRef.current = direction;  // Store the current value in useRef
     gsap.registerPlugin(ScrollTrigger);
+    
     gsap.to(slider.current, {
       scrollTrigger: {
         trigger: document.documentElement,
@@ -27,9 +29,21 @@ export default function Home() {
         onUpdate: e => direction = e.direction * -1
       },
       x: "-500px",
-    })
+    });
+
+    // Parallax effect for background image
+    gsap.to(bgImage.current, {
+      y: -450,
+      yPercent: 100, // Adjust the value to control the intensity of the parallax effect
+      ease: "none",
+      scrollTrigger: {
+        trigger: document.documentElement,
+        scrub: true
+      }
+    });
+
     requestAnimationFrame(animate);
-  }, [])
+  }, []);
 
   const animate = () => {
     if(xPercent < -100){
@@ -46,12 +60,16 @@ export default function Home() {
 
   return (
     <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.landing}>
-      <Image 
-        src="/images/background.png"
-        fill={true}
-        alt="background"
-        unoptimized={true}
-      />
+      <div ref={bgImage} className={styles.backgroundImageContainer}>
+        <Image 
+          src="/images/background.png"
+          layout="fill"
+          objectFit="cover"
+          alt="background"
+          unoptimized={true}
+          priority={true}
+        />
+      </div>
       <div className={styles.sliderContainer}>
         <div ref={slider} className={styles.slider}>
           <p ref={firstText}>Jonathan Bacarac -</p>
