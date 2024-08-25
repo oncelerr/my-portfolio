@@ -14,8 +14,11 @@ export default function Home() {
   const slider = useRef(null);
   let xPercent = 0;
   let direction = -1;
+  const directionRef = useRef(null);
 
-  useLayoutEffect( () => {
+  useLayoutEffect(() => {
+    directionRef.current = direction;  // Store the current value in useRef
+    // Perform your operations with directionRef.current
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(slider.current, {
       scrollTrigger: {

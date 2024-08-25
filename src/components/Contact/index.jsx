@@ -58,7 +58,9 @@ export default function Contact() {
                         <span>
                             <h3>socials</h3>
                             <Magnetic>
-                                <p onClick={() => window.open('https://www.facebook.com/profile.php?id=61551069984893', '_blank')}>Facebook</p>
+                                <p onClick={() => window.open('https://www.facebook.com/profile.php?id=61551069984893', '_blank')}>
+                                    Facebook
+                                </p>
                             </Magnetic>
                         </span>
                         <Magnetic>
