@@ -8,7 +8,6 @@ import { slideUp } from './animation';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
@@ -18,7 +17,6 @@ export default function Home() {
 
   useLayoutEffect(() => {
     directionRef.current = direction;  // Store the current value in useRef
-    // Perform your operations with directionRef.current
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(slider.current, {
       scrollTrigger: {
