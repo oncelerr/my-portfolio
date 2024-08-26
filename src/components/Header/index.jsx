@@ -52,9 +52,9 @@ export default function Header() {
                     <div className={styles.logo}>
                         <p className={styles.copyright}>©</p>
                         <div className={styles.name}>
-                            <p className={styles.codeBy}>Code by</p>
-                            <p className={styles.dennis}>Jonathan</p>
-                            <p className={styles.snellenberg}>Bacarac</p>
+                            <p className={styles.hiIm}>Hi! I'm</p>
+                            <p className={styles.jonathan}>Jonathan</p>
+                            <p className={styles.bacarac}>Bacarac</p>
                         </div>
                     </div>
                 </Magnetic>
